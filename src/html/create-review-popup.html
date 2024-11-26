@@ -1,0 +1,55 @@
+<div class="popup" data-popup="create-review-popup" data-close-overlay>
+	<div class="popup__wrapper" data-close-overlay>
+		<div class="popup__content popup__small-content">
+			<button class="popup__close button-close" type="button"></button>
+			<div class="popup__body create-review">
+				<h4 class="heading4 create-review__title">Create review</h4>
+				<form class="create-review__wrapper">
+					<div class="create-review__inputs">
+						<div class="create-review__input">
+							<h5 class="heading5">Meno</h5>
+							<input type="text" name="name" class="input-text" placeholder="FirtsName LastName" />
+						</div>
+						<div class="create-review__input">
+							<h5 class="heading5">E-mail</h5>
+							<input type="email" name="email" class="input-text" placeholder="example@example.com" />
+						</div>
+						<div class="create-review__input">
+							<h5 class="heading5">Rating</h5>
+							<div class="rating largeStar">
+								<input type="radio" name="rating" value="5" id="new-rating-5" />
+								<label for="new-rating-5"></label>
+								<input type="radio" name="rating" value="4" id="new-rating-4" />
+								<label for="new-rating-4"></label>
+								<input type="radio" name="rating" value="3" id="new-rating-3" />
+								<label for="new-rating-3"></label>
+								<input type="radio" name="rating" value="2" id="new-rating-2" />
+								<label for="new-rating-2"></label>
+								<input type="radio" name="rating" value="1" id="new-rating-1" checked />
+								<label for="new-rating-1"></label>
+							</div>
+						</div>
+						<div class="create-review__input">
+							<h5 class="heading5">Text</h5>
+							<textarea name="text" class="input-text input-text__textarea" placeholder="Text správy"></textarea>
+						</div>
+					</div>
+					<button class="create-review__submit-button button button-close" type="submit">Poslať</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	const form = document.querySelector(".create-review__wrapper");
+
+	form.addEventListener("submit", (event) => {
+		event.stopPropagation();
+		event.preventDefault();
+
+		const formData = new FormData(event.target);
+		const formProps = Object.fromEntries(formData);
+
+		console.info(formProps);
+	});
+</script>
